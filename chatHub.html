@@ -1,18 +1,62 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple Chat Hub</title>
+    <title>OmniChat Hub</title>
     <script type="module" crossorigin src="/assets/chunk-deab75fd.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/chunk-e4f7c63a.js">
-    <link rel="modulepreload" crossorigin href="/assets/chunk-f0caae00.js">
-    <link rel="modulepreload" crossorigin href="/assets/chunk-a456ce36.js">
-    <link rel="stylesheet" href="/assets/chatHub-9079ae80.css">
+    <link rel="modulepreload" crossorigin href="/assets/chunk-e4f7c63a.js" />
+    <link rel="modulepreload" crossorigin href="/assets/chunk-f0caae00.js" />
+    <link rel="modulepreload" crossorigin href="/assets/chunk-a456ce36.js" />
+    <link rel="stylesheet" href="/assets/custom.css" /> <!-- Neue CSS-Datei für Design -->
   </head>
   <body>
-    <div id="app"></div>
-    
+    <div id="app" class="grid-container">
+      <!-- Simultaner Chat: IFrames für ChatGPT, Claude, Grok -->
+      <div class="chat-section">
+        <input type="text" id="chatgpt-link" placeholder="ChatGPT Chat-ID/Link" />
+        <iframe id="chatgpt-iframe" src="https://chatgpt.com" class="chat-iframe"></iframe>
+      </div>
+      <div class="chat-section">
+        <input type="text" id="claude-link" placeholder="Claude Chat-ID/Link" />
+        <iframe id="claude-iframe" src="https://claude.ai" class="chat-iframe"></iframe>
+      </div>
+      <div class="chat-section">
+        <input type="text" id="grok-link" placeholder="Grok Chat-ID/Link" />
+        <iframe id="grok-iframe" src="https://grok.com" class="chat-iframe"></iframe>
+      </div>
+      
+      <!-- Kollaborativer OmniChat -->
+      <div class="omnichat-section">
+        <h2>OmniChat</h2>
+        <div id="omnichat-messages" class="messages"></div>
+        <input type="text" id="omnichat-input" placeholder="Type @ChatGPT, @Claude, or @Grok..." />
+        <button onclick="sendOmniChatMessage()">Send</button>
+      </div>
+    </div>
+
+    <script>
+      // Einfache Logik für Chat-ID/Link (Bolt.new übernimmt Details)
+      document.getElementById("chatgpt-link").addEventListener("change", (e) => {
+        document.getElementById("chatgpt-iframe").src = e.target.value || "https://chatgpt.com";
+      });
+      document.getElementById("claude-link").addEventListener("change", (e) => {
+        document.getElementById("claude-iframe").src = e.target.value || "https://claude.ai";
+      });
+      document.getElementById("grok-link").addEventListener("change", (e) => {
+        document.getElementById("grok-iframe").src = e.target.value || "https://grok.com";
+      });
+
+      // Platzhalter für OmniChat-Nachrichten (Bolt.new Logik-Block)
+      function sendOmniChatMessage() {
+        const input = document.getElementById("omnichat-input").value;
+        if (input) {
+          const messages = document.getElementById("omnichat-messages");
+          messages.innerHTML += `<p>${input}</p>`;
+          document.getElementById("omnichat-input").value = "";
+        }
+      }
+    </script>
   </body>
 </html>
