@@ -1,0 +1,133 @@
+{
+"update_url": "https://clients2.google.com/service/update2/crx",
+
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmi/GWJI6eSfO42ZuWp/LU2scg+wv74pZtS9LRywDTcOVUWBo41vJcBOdWmLfBbvvssMulyj3r2FJC5JqzJfuQbTy0/LdpukfhSwleYnzNnojbwRPy3zd8KvB+rJSn0/ZmFwGDCQ3NyRDx6pEFW18+bp3cJsishllKke7Bmsyd2hS5Oe1BWKMj9PAaF1TCwXYFYsJ1AA8O6J4l1Z5ekuZNurc1moAE0xXvigipaeV5fupAvNlzOBzmY4iwoBRhEXURpAjsraGRhb8hf9sBE7jbuaaZrK5V1GKo4pWOpe8UlloWAVjJZ2DnRYdg/9sDTKSQXRCdPjQoTySfH16t4+tQwIDAQAB",
+  "name": "__MSG_extension_name__",
+  "description": "__MSG_extension_description__",
+  "version": "1.8.1",
+  "homepage_url": "https://chathub.aipilot.cc/",
+  "manifest_version": 3,
+  "default_locale": "en",
+  "icons": {
+    "16": "img/logo-16.png",
+    "32": "img/logo-34.png",
+    "48": "img/logo-48.png",
+    "128": "img/logo-128.png"
+  },
+  "action": {
+    "default_icon": "img/logo-48.png"
+  },
+  "options_page": "chatHub.html",
+  "background": {
+    "service_worker": "service-worker-loader.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "assets/index.ts-loader-c4a7c7db.js"
+      ],
+      "matches": [
+        "https://copilot.microsoft.com/*",
+        "https://github.com/copilot*",
+        "https://felo.ai/search*",
+        "https://getliner.com/*",
+        "https://www.perplexity.ai/*",
+        "https://www.phind.com/*",
+        "https://you.com/*",
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://gemini.google.com/*",
+        "https://grok.com/*",
+        "https://lambda.chat/*",
+        "https://www.meta.ai/*",
+        "https://chat.mistral.ai/chat*",
+        "https://poe.com/*",
+        "https://chat.qwen.ai/*",
+        "https://space.reka.ai/*",
+        "https://ying.baichuan-ai.com/chat*",
+        "https://chatglm.cn/*",
+        "https://chat.deepseek.com/*",
+        "https://www.doubao.com/*",
+        "https://chat.minimaxi.com/*",
+        "https://yuanbao.tencent.com/*",
+        "https://kimi.moonshot.cn/*",
+        "https://bot.n.cn/*",
+        "https://tongyi.aliyun.com/qianwen/*",
+        "https://chat.sensetime.com/wb/chat/*",
+        "https://www.tiangong.cn/chat/universal/016*",
+        "https://www.wanzhi.com/*",
+        "https://yiyan.baidu.com/*",
+        "https://yuewen.cn/*",
+        "https://chat.360.com/*",
+        "https://metaso.cn/*",
+        "https://www.n.cn/*"
+      ],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "matches": [],
+      "resources": [
+        "img/logo-16.png",
+        "img/logo-34.png",
+        "img/logo-48.png",
+        "img/logo-128.png"
+      ],
+      "use_dynamic_url": false
+    },
+    {
+      "matches": [
+        "https://bot.n.cn/*",
+        "https://chat.360.com/*",
+        "https://chat.deepseek.com/*",
+        "https://chat.minimaxi.com/*",
+        "https://chat.mistral.ai/*",
+        "https://chat.qwen.ai/*",
+        "https://chat.sensetime.com/*",
+        "https://chatglm.cn/*",
+        "https://chatgpt.com/*",
+        "https://claude.ai/*",
+        "https://copilot.microsoft.com/*",
+        "https://felo.ai/*",
+        "https://gemini.google.com/*",
+        "https://getliner.com/*",
+        "https://github.com/*",
+        "https://grok.com/*",
+        "https://kimi.moonshot.cn/*",
+        "https://lambda.chat/*",
+        "https://metaso.cn/*",
+        "https://poe.com/*",
+        "https://space.reka.ai/*",
+        "https://tongyi.aliyun.com/*",
+        "https://www.doubao.com/*",
+        "https://www.meta.ai/*",
+        "https://www.n.cn/*",
+        "https://www.perplexity.ai/*",
+        "https://www.phind.com/*",
+        "https://www.tiangong.cn/*",
+        "https://www.wanzhi.com/*",
+        "https://ying.baichuan-ai.com/*",
+        "https://yiyan.baidu.com/*",
+        "https://you.com/*",
+        "https://yuanbao.tencent.com/*",
+        "https://yuewen.cn/*"
+      ],
+      "resources": [
+        "assets/chunk-a456ce36.js",
+        "assets/chunk-f0caae00.js",
+        "assets/chunk-6b2e80e2.js"
+      ],
+      "use_dynamic_url": false
+    }
+  ],
+  "permissions": [
+    "storage",
+    "declarativeNetRequest",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
